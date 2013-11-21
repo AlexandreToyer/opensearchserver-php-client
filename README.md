@@ -1,7 +1,7 @@
 OpenSearchServer PHP Client
 ===========================
 
-This API connector is intended to be used with PHP 5 with any version >= 5.3 with [Composer](http://getcomposer.org/).
+This API connector is intended to be used with PHP 5 (any version >= 5.3) and [Composer](http://getcomposer.org/).
 It is based on the v1 API of OpenSearchServer.
 
 You can find more about the OSS API on the OSS WiKi
