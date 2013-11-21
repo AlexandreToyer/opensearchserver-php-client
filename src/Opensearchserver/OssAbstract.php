@@ -31,10 +31,6 @@ abstract class OssAbstract {
   protected $lastQueryString;
 
   public function init($enginePath, $index = NULL, $login = NULL, $apiKey = NULL) {
-    if (!function_exists('OssApi_Dummy_Function')) {
-      function OssApi_Dummy_Function() {
-      }
-    }
     $this->lastQueryString = null;
     $this->enginePath = $enginePath;
     $this->index = $index;
@@ -160,7 +156,7 @@ abstract class OssAbstract {
       curl_setopt($rcurl, CURLOPT_HTTPHEADER, array("Content-type: text/xml; charset=utf-8"));
     }
 
-    set_error_handler('OssApi_Dummy_Function', E_ALL);
+    set_error_handler(function() {}, E_ALL);
     $content = curl_exec($rcurl);
     restore_error_handler();
 
@@ -222,8 +218,8 @@ abstract class OssAbstract {
     $lastErrorLevel = error_reporting(0);
     $xmlResult = simplexml_load_string(OssApi::cleanUTF8($result));
     error_reporting($lastErrorLevel);
-    if (!$xmlResult instanceof SimpleXMLElement) {
-      if (class_exists('OssException')) {
+    if (!$xmlResult instanceof \SimpleXMLElement) {
+      if (class_exists('Opensearchserver\OssException')) {
         throw new RuntimeException("The search engine didn't return a valid XML");
       }
       trigger_error("The search engine didn't return a valid XML", E_USER_WARNING);

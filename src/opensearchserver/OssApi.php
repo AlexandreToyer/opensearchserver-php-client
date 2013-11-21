@@ -49,10 +49,6 @@ if (!class_exists('OutOfRangeException')) {
  * @package OpenSearchServer
  */
 
-require_once(dirname(__FILE__).'/oss_abstract.class.php');
-require_once(dirname(__FILE__).'/oss_schema.class.php');
-require_once(dirname(__FILE__) . '/oss_search.class.php');
-
 
 class OssApi extends OssAbstract {
 
@@ -126,6 +122,22 @@ class OssApi extends OssAbstract {
    */
   public function search() {
     return $this->select();
+  }
+
+  /**
+   * Returns an OssAutocompletion instance
+   * @return OssAutocompletion
+   */
+  public function autocomplete() {
+    return new OssAutocompletion($this->enginePath, $this->index, $this->login, $this->apiKey);
+  }
+  
+  /**
+   * Returns an OssSearchSpellCheck instance
+   * @return OssSearchSpellCheck
+   */
+  public function searchSpellCheck() {
+    return new OssSearchSpellCheck($this->enginePath, $this->index, $this->login, $this->apiKey);
   }
 
   /**

@@ -47,17 +47,13 @@ class OssResults {
    * @param $model The list of fields
    * @return OssApi
    */
-  public function __construct(SimpleXMLElement $result, $model = NULL) {
+  public function __construct(\SimpleXMLElement $result, $model = NULL) {
     $this->result  = $result;
     $this->resultFound = (int)$this->result->result['numFound'];
     $this->resultTime = (float)$this->result->result['time'] / 1000;
     $this->resultRows = (int)$this->result->result['rows'];
     $this->resultStart = (int)$this->result->result['start'];
     $this->resultCollapsedCount = (int)$this->result->result['collapsedDocCount'];
-    if (!function_exists('OssApi_Dummy_Function')) {
-      function OssApi_Dummy_Function() {
-      }
-    }
   }
   public function getResultCollapsedCount() {
     return $this->resultCollapsedCount;
