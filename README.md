@@ -26,9 +26,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with OpenSearchServer PHP Client.
 If not, see <http://www.gnu.org/licenses/>.
 
-### How to use it
-
-Here is an example of code make a simple search.
+### How to install it
 
 Add the repository information in your `composer.json` file:
 ``` 
@@ -44,6 +42,10 @@ Add the require information in your `composer.json` file:
 ```
 "opensearchserver/opensearchserver": "~1.4-dev"
 ``` 
+
+Run `composer install` (or `php composer.phar install`).
+
+### How to use it
 
 Create an OSS_API instance:
 ```php
