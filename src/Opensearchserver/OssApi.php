@@ -48,7 +48,7 @@ if (!class_exists('OutOfRangeException')) {
  * @author pmercier <pmercier@open-search-server.com>
  * @package OpenSearchServer
  */
-
+ 
 
 class OssApi extends OssAbstract {
 
