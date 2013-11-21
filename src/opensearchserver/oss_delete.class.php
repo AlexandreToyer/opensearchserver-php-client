@@ -25,7 +25,7 @@
  * Class to access OpenSearchServer API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 class OssDelete extends OssAbstract {
 

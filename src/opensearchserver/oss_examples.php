@@ -26,7 +26,7 @@
  * Examples using the OpenSearchServer PHP API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 // Retrieve connection information
 $oss_url = getenv('OSS_PHP_URL');

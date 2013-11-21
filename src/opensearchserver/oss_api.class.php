@@ -20,7 +20,7 @@
 *  along with OpenSearchServer PHP Client.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 if (!extension_loaded('curl')) {
   trigger_error("OssApi won't work whitout curl extension", E_USER_ERROR); die();

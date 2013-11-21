@@ -25,7 +25,7 @@
  * Class to access OpenSearchServer API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 if (!class_exists('ArrayObject')) {
   trigger_error("OssIndexDocument won't work whitout SPL ArrayObject", E_USER_ERROR); die();

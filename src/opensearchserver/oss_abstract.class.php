@@ -20,7 +20,7 @@
 *  along with OpenSearchServer PHP Client.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 abstract class OssAbstract {
 

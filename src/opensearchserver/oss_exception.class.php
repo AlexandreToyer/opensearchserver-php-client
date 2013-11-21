@@ -25,7 +25,7 @@
  * Class to access OpenSearchServer API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 if (!class_exists('RuntimeException')) {
   class RuntimeException extends Exception {}

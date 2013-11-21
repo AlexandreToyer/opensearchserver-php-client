@@ -26,7 +26,7 @@
  * Class to access OpenSearchServer API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 /**
  * @package OpenSearchServer

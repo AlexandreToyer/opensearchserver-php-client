@@ -25,7 +25,7 @@
  * Class to access OpenSearchServer API
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 class OssAutocompletion extends OssAbstract {
 

@@ -25,7 +25,7 @@
  * @package OpenSearchServer
  */
 
-namespace opensearchserver;
+namespace Opensearchserver;
 
 /**
  * Store and retrieve a value from the browser (In order REQUEST, COOKIE, DEFAULT)
