@@ -26,8 +26,7 @@
  * Examples using the OpenSearchServer PHP API
  */
 
-require_once(dirname(__FILE__).'/oss_api.class.php');
-require_once(dirname(__FILE__).'/oss_results.class.php');
+namespace opensearchserver;
 
 // Retrieve connection information
 $oss_url = getenv('OSS_PHP_URL');

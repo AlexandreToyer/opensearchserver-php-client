@@ -20,6 +20,8 @@
 *  along with OpenSearchServer PHP Client.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+namespace opensearchserver;
+
 if (!extension_loaded('SimpleXML')) {
   trigger_error("OssApi won't work whitout SimpleXML extension", E_USER_ERROR); die();
 }

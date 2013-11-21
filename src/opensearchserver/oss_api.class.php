@@ -19,6 +19,9 @@
 *  You should have received a copy of the GNU Lesser General Public License
 *  along with OpenSearchServer PHP Client.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+namespace opensearchserver;
+
 if (!extension_loaded('curl')) {
   trigger_error("OssApi won't work whitout curl extension", E_USER_ERROR); die();
 }
