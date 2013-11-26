@@ -159,13 +159,9 @@ abstract class OssAbstract {
     set_error_handler(function() {}, E_ALL);
     $content = curl_exec($rcurl);
     restore_error_handler();
-
+    
     if ($content === FALSE) {
-      if (class_exists('OssException')) {
-        throw new RuntimeException('CURL failed to execute on URL "' . $url . '"');
-      }
-      trigger_error('CURL failed to execute on URL "' . $url . '"', E_USER_WARNING);
-      return FALSE;
+        throw new \RuntimeException('CURL failed to execute on URL "' . $url . '"');
     }
 
     $aResponse   = curl_getinfo($rcurl);
@@ -219,11 +215,7 @@ abstract class OssAbstract {
     $xmlResult = simplexml_load_string(OssApi::cleanUTF8($result));
     error_reporting($lastErrorLevel);
     if (!$xmlResult instanceof \SimpleXMLElement) {
-      if (class_exists('Opensearchserver\OssException')) {
-        throw new RuntimeException("The search engine didn't return a valid XML");
-      }
-      trigger_error("The search engine didn't return a valid XML", E_USER_WARNING);
-      return FALSE;
+        throw new \RuntimeException("The search engine didn't return a valid XML");
     }
     return $xmlResult;
   }
