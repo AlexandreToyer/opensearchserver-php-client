@@ -38,6 +38,8 @@ class OssSearchAbstract extends OssAbstract {
   protected $template;
   protected $log;
   protected $customLogs;
+  
+  protected $otherParams = array();
 
   /**
    * @param $enginePath The URL to access the OSS Engine
@@ -95,8 +97,28 @@ class OssSearchAbstract extends OssAbstract {
     foreach ($this->customLogs as $pos => $customLog) {
       $queryChunks[] = 'log' . $pos . '=' . urlencode($customLog);
     }
+    
+    //Other params
+    foreach($this->otherParams as $param => $value)
+    {
+    	$queryChunks[] = $param . '=' . $value;
+    }
 
     return $queryChunks;
+  }
+  
+  /**
+   * Add a param to the query 
+   * @param string $name
+   * @param string $value
+   */
+  public function addParam($name, $value) {
+  	if(!$value) {
+  		unset($this->otherParams[$name]);
+  	}
+  	else {
+  		$this->otherParams[$name] = $value;
+  	}
   }
 }
 ?>
