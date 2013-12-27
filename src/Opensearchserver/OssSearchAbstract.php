@@ -122,6 +122,5 @@ class OssSearchAbstract extends OssAbstract {
 		  	$this->groups = $groups;
   		}
   }
-  
 }
 ?>
