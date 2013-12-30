@@ -30,6 +30,9 @@ abstract class OssAbstract {
   protected $apiKey;
   protected $lastQueryString;
 
+  protected $user = '';
+  protected $groups = array();
+  
   public function init($enginePath, $index = NULL, $login = NULL, $apiKey = NULL) {
     $this->lastQueryString = null;
     $this->enginePath = $enginePath;
@@ -98,10 +101,38 @@ abstract class OssAbstract {
     } else if ($options != null) {
       $chunks[] = $options;
     }
+    
+  
+    //User
+    if(!empty($this->user))
+    {
+    	$chunks[] = 'user='.urlencode($this->user);
+    }
+    
+    //Groups
+    if(!empty($this->groups))
+    {
+    	foreach($this->groups as $group)
+	    {
+    		$chunks[] = 'group='.urlencode($group);
+    	}
+    }
 
     $path .= (strpos($path, '?') !== FALSE ? '&' : '?') . implode('&', $chunks);
 
     return $path;
+  }
+  
+  public function setUser($value) {
+  		$this->user = $value;
+  }
+  public function setGroups($groups) {
+  		if(!is_array($groups)) {
+  			$this->groups = array($groups);
+  		}	
+  		else {
+		  	$this->groups = $groups;
+  		}
   }
 
   /**

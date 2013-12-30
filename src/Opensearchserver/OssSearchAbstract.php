@@ -99,6 +99,7 @@ class OssSearchAbstract extends OssAbstract {
       $queryChunks[] = 'log' . $pos . '=' . urlencode($customLog);
     }
     
+    /*
     //User
     $queryChunks[] = 'user='.urlencode($this->user);
     
@@ -107,20 +108,9 @@ class OssSearchAbstract extends OssAbstract {
     {
     	$queryChunks[] = 'group='.urlencode($group);
     }
-
+	*/
     return $queryChunks;
   }
   
-  public function setUser($value) {
-  		$this->user = $value;
-  }
-  public function setGroups($groups) {
-  		if(!is_array($groups)) {
-  			$this->groups = array($groups);
-  		}	
-  		else {
-		  	$this->groups = $groups;
-  		}
-  }
 }
 ?>
