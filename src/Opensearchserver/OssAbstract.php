@@ -211,6 +211,9 @@ abstract class OssAbstract {
       if (class_exists('OssException')) {
         throw new OssException($content);
       }
+      else {
+      	throw new \Exception($content);
+      }
       trigger_error('OSS Returned an error: "' . trim(strip_tags($content)) . '"', E_USER_WARNING);
       return FALSE;
     }
@@ -259,13 +262,13 @@ abstract class OssAbstract {
   protected  function isOSSError($xml) {
     // Cast $xml param to be a SimpleXMLElement
     // If we don't find the word 'Error' in the xml string, exit immediatly
-    if ($xml instanceof SimpleXMLElement) {
+    if ($xml instanceof \SimpleXMLElement) {
       if (strpos((string)$xml, 'Error') === FALSE) {
         return FALSE;
       }
       $xmlDoc = $xml;
     }
-    elseif ($xml instanceof DOMDocument) {
+    elseif ($xml instanceof \DOMDocument) {
       $xmlDoc = simplexml_import_dom($xml);
       if (strpos((string)$xmlDoc, 'Error') === FALSE) {
         return FALSE;
@@ -280,9 +283,10 @@ abstract class OssAbstract {
       error_reporting($previous_error_level);
     }
 
-    if (!$xmlDoc instanceof SimpleXMLElement) {
+    if (!$xmlDoc instanceof \SimpleXMLElement) {
       return FALSE;
     }
+    
 
     // Make sure the Error we found was a Status Error
     foreach ($xmlDoc->entry as $entry) {
